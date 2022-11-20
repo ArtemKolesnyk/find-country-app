@@ -14,14 +14,13 @@ refs.inputSearch.addEventListener('input', debounce(onSearch, 500));
 function onSearch(e) {
   e.preventDefault();
   const searchQuery = e.target.value;
+  console.log(searchQuery);
   if (searchQuery === '') {
     return;
   }
   hideCountryList();
 
-  API.fetchCountries(searchQuery)
-    .then(onSearchQuery)
-    .catch(error => console.log(error));
+  API.fetchCountries(searchQuery).then(onSearchQuery).catch(error);
 }
 
 function onSearchQuery(searchList) {
